@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.Usuario;
+import dao.UsuarioDao;
+
 /**
  * Servlet implementation class ServletLogin
  */
@@ -28,7 +31,7 @@ public class ServletLogin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect(".");
 	}
 
 	/**
@@ -39,18 +42,18 @@ public class ServletLogin extends HttpServlet {
 		try {
 			String usuario = request.getParameter("usuario");
 			String password = request.getParameter("password");
-			//Usuario usuario = UsuarioDao.validarUsuario(usuario,password);
-			/*if(usuario !=null){
-				session.setAttribute("usuario", usuario);
-				response.sendRedirect(".");
+			Usuario usuarioDao = UsuarioDao.validarUsuario(usuario,password);
+			if(usuarioDao !=null){
+				session.setAttribute("usuario", usuarioDao);
+				//response.sendRedirect(".");
 				return;
 			}
-			*/
+			
 			session.setAttribute("error_login","Usuario o contraseña incorrecto.");
 		} catch (Exception e) {
 			session.setAttribute("error_login","ha ocurrido un error inesperado.");
 		}
-		response.sendRedirect(request.getContextPath()+"login.jsp");
+		//response.sendRedirect("login.jsp");
 	}
 
 }

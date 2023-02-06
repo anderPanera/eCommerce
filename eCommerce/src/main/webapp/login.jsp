@@ -15,9 +15,9 @@
 	      <div class="col col-xl-7">
 	        <div class="card" style="border-radius: 1rem;">
 	          <div class="row g-0">
-	            <div class="col-md-6 col-lg-12 d-flex align-items-center">
+	            <div class="col-md-6 col-md-12 d-flex align-items-center">
 	              <div class="card-body p-4 p-lg-5 text-black">
-					<form class="container" method="post" action="servletLogin">
+					<form class="container" method="post" action="ServletLogin">
 					  <div class="mb-3">
 					    <label for="exampleInputEmail1" class="form-label">Usuario</label>
 					    <input type="text" class="form-control" id="usuario" name="usuario">
