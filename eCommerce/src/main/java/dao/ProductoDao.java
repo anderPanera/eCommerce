@@ -29,7 +29,7 @@ public class ProductoDao {
 				String nombre = rs.getString("nombre");
 				String descripcion = rs.getString("descripcion");
 				String imagen = rs.getString("imagen");
-				double precio = rs.getDouble("precio");
+				int precio = rs.getInt("precio");
 				
 				Producto producto = new Producto(id, nombre, descripcion, imagen, precio);
 				
@@ -65,7 +65,7 @@ public class ProductoDao {
 			String nombre = rs.getString("nombre");
 			String descripcion = rs.getString("descripcion");
 			String imagen = rs.getString("imagen");
-			double precio = rs.getDouble("precio");
+			int precio = rs.getInt("precio");
 			
 			producto = new Producto(idP, nombre, descripcion, imagen, precio);
 			

@@ -7,12 +7,12 @@ public class Pedido {
 	
 	private int id;
 	private Usuario usuario;
-	private double total;
+	private int total;
 	private Date fecha;
 	
 	private HashMap<Integer, LineaPedido> carro;
 	
-	public Pedido(int id, Usuario usuario, double total, Date fecha) {
+	public Pedido(int id, Usuario usuario, int total, Date fecha) {
 		super();
 		carro = new HashMap<Integer, LineaPedido>();
 		this.id = id;
@@ -29,7 +29,7 @@ public class Pedido {
 		return usuario;
 	}
 
-	public double getTotal() {
+	public int getTotal() {
 		return total;
 	}
 

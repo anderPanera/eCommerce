@@ -11,7 +11,7 @@
 	<jsp:include page="../pages/navbar.jsp" />
 	<div id="productos" class="container my-5">
 		<c:if test="${producto != null}">
-			<div class="card mb-3" style="max-width: 540px;">
+			<div class="card mb-3">
 			  <div class="row g-0">
 			    <div class="col-md-4">
 			      <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${item.nombre}">
@@ -20,7 +20,7 @@
 			      <div class="card-body">
 			        <h5 class="card-title">${producto.nombre}</h5>
 			        <p class="card-text">${producto.descripcion}</p>
-			        <p class="card-text"><small class="text-muted">${producto.precio}€</small></p>
+			        <p class="card-text"><small class="text-muted">${producto.precio}<i class="bi bi-currency-euro"></i></small></p>
 			      </div>
 			    </div>
 			  </div>
