@@ -5,11 +5,11 @@
 		<c:forEach var="p" items="${productos}">
 			<div class="col-3 p-2">
 		  		<div class="card">
-					<img src="${p.imagen}" class="card-img-top" alt="${p.imagen}">
+					<img src="/eCommerce/img/${p.imagen}.webp" class="card-img-top img-fluid p-2" alt="${p.imagen}">
 				  	<div class="card-body">
 				    	<h5 class="card-title">${p.nombre} - ${p.precio}</h5>
 				    	<div class="d-flex">
-						    <a href="Productos?comprar&id=${p.id}" type="button" class="btn btn-outline-success flex-fill me-2"><i class="bi bi-cart"></i></a>
+						    <a href="Productos?comprar&id=${p.id}" type="button" class="btn btn-outline-success flex-fill me-2">Comprar</a>
 						    <a href="Productos?info&id=${p.id}" type="button" class="btn btn-outline-secondary"><i class="bi bi-info-circle-fill"></i></a>
 						</div>
 					</div>
