@@ -45,7 +45,7 @@ public class ServletLogin extends HttpServlet {
 			Usuario usuarioDao = UsuarioDao.validarUsuario(usuario,password);
 			if(usuarioDao !=null){
 				session.setAttribute("usuario", usuarioDao);
-				//response.sendRedirect(".");
+				response.sendRedirect(".");
 				return;
 			}
 			
@@ -53,7 +53,7 @@ public class ServletLogin extends HttpServlet {
 		} catch (Exception e) {
 			session.setAttribute("error_login","ha ocurrido un error inesperado.");
 		}
-		//response.sendRedirect("login.jsp");
+		response.sendRedirect("login.jsp");
 	}
 
 }
