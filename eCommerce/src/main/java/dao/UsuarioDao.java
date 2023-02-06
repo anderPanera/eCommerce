@@ -83,8 +83,9 @@ public class UsuarioDao {
 		return existe;
 	}
 	
-	public void insertarUsuario(Usuario usuario) {
+	public static boolean insertarUsuario(Usuario usuario) {
 		
+		return false;
 	}
 
 }
