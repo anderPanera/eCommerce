@@ -39,7 +39,7 @@ public class ServletProducto extends HttpServlet {
 			Integer id = Integer.parseInt(request.getParameter("id"));
 			if (request.getParameter("info") != null) {
 				session.setAttribute("producto", ProductoDao.getProducto(id));
-				response.sendRedirect("producto.jsp");
+				response.sendRedirect("pages/producto.jsp");
 				return;
 			}
 			if (request.getParameter("comprar") != null) {

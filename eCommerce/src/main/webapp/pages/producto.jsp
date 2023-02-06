@@ -9,18 +9,18 @@
 </head>
 <body>
 
-	<c:if test="${item != null}">
+	<c:if test="${producto != null}">
 	
 		<div class="card mb-3" style="max-width: 540px;">
 		  <div class="row g-0">
 		    <div class="col-md-4">
-		      <img src="${item.imagen}" class="img-fluid rounded-start" alt="${item.nombre}">
+		      <img src="${producto.imagen}" class="img-fluid rounded-start" alt="${item.nombre}">
 		    </div>
 		    <div class="col-md-8">
 		      <div class="card-body">
-		        <h5 class="card-title">${item.nombre}</h5>
-		        <p class="card-text">${item.descripcion}</p>
-		        <p class="card-text"><small class="text-muted">${item.precio}€</small></p>
+		        <h5 class="card-title">${producto.nombre}</h5>
+		        <p class="card-text">${producto.descripcion}</p>
+		        <p class="card-text"><small class="text-muted">${producto.precio}€</small></p>
 		      </div>
 		    </div>
 		  </div>
