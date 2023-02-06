@@ -34,4 +34,9 @@ public class LineaPedido {
 	public double getPrecioLineaTotal() {
 		return cantidad * producto.getPrecio();
 	}
+	
+	public LineaPedido unoMas() {
+		LineaPedido lp2 = new LineaPedido(this.getId(), this.getCantidad()+1, this.getIdpedido(), this.getProducto());
+		return lp2;
+	}
 }
