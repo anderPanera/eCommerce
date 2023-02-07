@@ -39,4 +39,13 @@ public class LineaPedido {
 		LineaPedido lp2 = new LineaPedido(this.getId(), this.getCantidad()+1, this.getIdpedido(), this.getProducto());
 		return lp2;
 	}
+	
+	public LineaPedido cambiarCantidad(int cant) {
+		LineaPedido lp2 = new LineaPedido(this.getId(), cant, this.getIdpedido(), this.getProducto());
+		return lp2;
+	}
+	
+	public int totalLinea() {
+		return this.getCantidad() * this.getProducto().getPrecio();
+	}
 }
