@@ -23,8 +23,11 @@
 	      	</c:if>
 	        <div class="card" style="border-radius: 1rem;">
 	          <div class="row g-0">
+	          	<div class="d-flex justify-content-end mt-2 pe-2">
+		        	<a type="button" class="btn-close" aria-label="Close" href="index.jsp"></a>
+		        </div>
 	            <div class=" col-md-12 d-flex align-items-center">
-	              <div class="card-body p-4 p-lg-5 text-black">
+	              <div class="card-body pb-5 pe-5 ps-5 pt-2 text-black">
 	              	<h1 class="card-title">Registrarse</h1>
 					<form class="container" method="post" action="ServletRegistro">
 					  <div class="row">

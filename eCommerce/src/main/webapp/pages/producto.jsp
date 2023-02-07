@@ -10,10 +10,6 @@
 		body {
 		  background-image: url("/eCommerce/img/fondoNegro.webp");  
 		}
-		button{
-			margin-bottom: 5px;
-    		margin-right: 7px;
-		}
 		.margen{
 			margin-top: 9em;
 		}
