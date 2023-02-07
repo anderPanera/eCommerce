@@ -10,11 +10,18 @@
 		body {
 		  background-image: url("/eCommerce/img/fondoNegro.webp");  
 		}
+		button{
+			margin-bottom: 5px;
+    		margin-right: 7px;
+		}
+		.margen{
+			margin-top: 9em;
+		}
 	</style>
 </head>
 <body>
 	<jsp:include page="../pages/navbar.jsp" />
-	<div id="productos" class="container my-5">
+	<div id="productos" class="container margen">
 		<c:if test="${producto != null}">
 			<div class="card mb-3">
 			  <div class="row g-0">
@@ -27,15 +34,16 @@
 			        <p class="card-text">${producto.descripcion}</p>
 			        <p class="card-text">${producto.precio} <img style="filter: invert(1);" height="18" src="/eCommerce/img/coin.webp"></p>
 			      </div>
+					<form action="../Productos">
+						<div class="d-flex justify-content-end">
+							<button type="submit" class="btn btn-success">Atras</button>
+						</div>
+					</form>
 			    </div>
 			  </div>
 			</div>
 		</c:if>
-		<form action="../Productos">
-			<div class="d-flex justify-content-end">
-				<button type="submit">Atras</button>
-			</div>
-		</form>
+		
 	</div>
 </body>
 </html>
