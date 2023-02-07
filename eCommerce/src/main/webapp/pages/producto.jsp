@@ -31,7 +31,7 @@
 			        <p class="card-text">${producto.precio} <img style="filter: invert(1);" height="18" src="/eCommerce/img/coin.webp"></p>
 			      </div>
 					<div class="d-flex justify-content-end mb-2 me-2">
-						<a href=".." class="btn btn-success">Atras</a>
+						<a href=".." class="btn btn-danger">Atras</a>
 					</div>
 			    </div>
 			  </div>
