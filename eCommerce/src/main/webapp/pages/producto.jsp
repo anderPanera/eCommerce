@@ -5,7 +5,12 @@
 <html>
 <head>
 	<jsp:include page="../conf/conf.jsp" />
-<title>Ventana</title>
+	<title>Ventana</title>
+	<style>
+		body {
+		  background-image: url("/eCommerce/img/fondoNegro.webp");  
+		}
+	</style>
 </head>
 <body>
 	<jsp:include page="../pages/navbar.jsp" />
@@ -20,12 +25,17 @@
 			      <div class="card-body">
 			        <h5 class="card-title">${producto.nombre}</h5>
 			        <p class="card-text">${producto.descripcion}</p>
-			        <p class="card-text"><small class="text-muted">${producto.precio}<i class="bi bi-currency-euro"></i></small></p>
+			        <p class="card-text">${producto.precio} <img style="filter: invert(1);" height="18" src="/eCommerce/img/coin.webp"></p>
 			      </div>
 			    </div>
 			  </div>
 			</div>
 		</c:if>
+		<form action="../Productos">
+			<div class="d-flex justify-content-end">
+				<button type="submit">Atras</button>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
