@@ -26,9 +26,9 @@
 			    </div>
 			    <div class="col-md-8">
 			      <div class="card-body">
-			        <h5 class="card-title">${producto.nombre}</h5>
-			        <p class="card-text">${producto.descripcion}</p>
-			        <p class="card-text">${producto.precio} <img style="filter: invert(1);" height="18" src="/eCommerce/img/coin.webp"></p>
+			        <h5 class="card-title display-1">${producto.nombre}</h5>
+			        <p class="card-text display-6">${producto.descripcion}</p>
+			        <p class="card-text display-6">${producto.precio} <img style="filter: invert(1);" height="18" src="/eCommerce/img/coin.webp"></p>
 			      </div>
 					<div class="d-flex justify-content-end mb-2 me-2">
 						<a href=".." class="btn btn-danger">Atras</a>
