@@ -17,7 +17,7 @@
       <c:if test="${usuario == null }">
       	<div class="" role="group">
 		  <a href="/eCommerce/login.jsp" type="button" class="btn btn-primary me-1">Login</a>
-		  <a href="ServletRegister" type="button" class="btn btn-outline-light">Register</a>
+		  <a href="/eCommerce/register.jsp" type="button" class="btn btn-outline-light">Register</a>
 		</div>
       </c:if>
       <c:if test="${usuario != null }">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +8,19 @@
 <title>Iniciar Sesion</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
+<c:if test="${ usuario != null }">
+	<c:redirect url="."></c:redirect>
+</c:if>
 <body style="background-color: #9A616D;">
 	<section>
 	  <div class="container py-5 h-100">
 	    <div class="row d-flex justify-content-center align-items-center h-100">
 	      <div class="col col-xl-7">
+	      <c:if test="${error_login != null}">
+	      		<div class="alert alert-danger" role="alert">
+					<c:out value="${error_login}"></c:out>
+				</div>
+	      	</c:if>
 	        <div class="card" style="border-radius: 1rem;">
 	          <div class="row g-0">
 	            <div class="col-md-6 col-md-12 d-flex align-items-center">

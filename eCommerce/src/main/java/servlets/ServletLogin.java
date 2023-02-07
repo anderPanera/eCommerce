@@ -53,6 +53,7 @@ public class ServletLogin extends HttpServlet {
 			Usuario usuarioDao = UsuarioDao.validarUsuario(usuario,password);
 			if(usuarioDao !=null){
 				session.setAttribute("usuario", usuarioDao);
+				session.removeAttribute("error_login");
 				response.sendRedirect(".");
 				return;
 			}

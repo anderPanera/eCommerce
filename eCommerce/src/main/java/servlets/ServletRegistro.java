@@ -50,8 +50,8 @@ public class ServletRegistro extends HttpServlet {
 			String cp = request.getParameter("cp");
 			String telefono = request.getParameter("telefono");
 			
-			if (nombre == null || apellidos == null || usuario == null || email == null ||
-					password == null || domicilio == null || cp == null || telefono == null) {
+			if (nombre.isEmpty() || apellidos.isEmpty() || usuario.isEmpty() || email.isEmpty()||
+					password.isEmpty() || domicilio.isEmpty() || cp.isEmpty() || telefono.isEmpty()) {
 				session.setAttribute("error_register","Algun campo vacio");
 				response.sendRedirect("register.jsp");
 				return;
@@ -63,12 +63,11 @@ public class ServletRegistro extends HttpServlet {
 				session.removeAttribute("error_register");
 				response.sendRedirect(".");
 				return;
-			}
+			}else
+				session.setAttribute("error_register","Usuario ya existe o es incorrecto");
 			
-			session.setAttribute("error_register","Usuario ya existe o es incorrecto");
 		} catch (Exception e) {
 			session.setAttribute("error_register","ha ocurrido un error inesperado.");
-			System.out.println(e.getMessage());
 		}
 		response.sendRedirect("register.jsp");
 	}

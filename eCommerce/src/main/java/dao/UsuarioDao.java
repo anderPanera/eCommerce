@@ -103,7 +103,6 @@ public class UsuarioDao {
 			ps.close();			
 			con.close();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
 			return false;
 		}
 		return true;
