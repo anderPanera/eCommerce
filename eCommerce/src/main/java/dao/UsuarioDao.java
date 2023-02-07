@@ -84,8 +84,29 @@ public class UsuarioDao {
 	}
 	
 	public static boolean insertarUsuario(Usuario usuario) {
-		
-		return false;
+		String sql = "INSERT usuario (`usuario`, `nombre`, `apellidos`, `password`, `domicilio`, `codigopostal`,"
+				+ " `telefono`, `email`) VALUES ( ?, ? , ?, ?, ?, ?, ?, ?)";
+		try (Connection con = conex.getConnection()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, usuario.getUsuario());
+			ps.setString(2, usuario.getNombre());
+			ps.setString(3, usuario.getApellidos());
+			ps.setString(4, usuario.getPassword());
+			ps.setString(5, usuario.getDomicilio());
+			ps.setString(6, usuario.getCodigopostal());
+			ps.setString(7, usuario.getTelefono());
+			ps.setString(8, usuario.getEmail());
+			
+			ps.executeUpdate();
+						
+			ps.close();			
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+		return true;
 	}
 
 }

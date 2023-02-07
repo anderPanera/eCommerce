@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +13,17 @@
 	  <div class="container py-5 h-100">
 	    <div class="row d-flex justify-content-center align-items-center h-100">
 	      <div class="col col-xl-10">
+	      	<c:if test="${error_register != null}">
+	      		<div class="alert alert-danger" role="alert">
+					<c:out value="${error_register}"></c:out>
+				</div>
+	      	</c:if>
 	        <div class="card" style="border-radius: 1rem;">
 	          <div class="row g-0">
 	            <div class=" col-md-12 d-flex align-items-center">
 	              <div class="card-body p-4 p-lg-5 text-black">
 	              	<h1 class="card-title">Registrarse</h1>
-					<form class="container" method="post" action="ServletLogin">
+					<form class="container" method="post" action="ServletRegistro">
 					  <div class="row">
 						  <div class="mb-3 col-6">
 						    <label for="nombre" class="form-label">Nombre</label>
@@ -40,8 +46,8 @@
 						    <input type="password" class="form-control" id="password" name="password">
 						  </div>
 						  <div class="mb-3 col-7">
-						    <label for="docimilio" class="form-label">Domicilio</label>
-						    <input type="text" class="form-control" id="docimilio" name="docimilio">
+						    <label for="domicilio" class="form-label">Domicilio</label>
+						    <input type="text" class="form-control" id="domicilio" name="domicilio">
 						  </div>
 						  <div class="mb-3 col-2">
 						    <label for="cp" class="form-label">Codigo Postal</label>
@@ -54,6 +60,7 @@
 					  </div>
 					  <div>
 					  	<button type="submit" class="btn btn-primary">Registrarse</button>
+					  	<a href="login.jsp" class="link col">¿Tienes una cuenta?</a>
 					  </div>
 					  
 					</form>

@@ -40,6 +40,7 @@ public class ServletRegistro extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		try {
+			//conseguir datos
 			String nombre = request.getParameter("nombre");
 			String apellidos = request.getParameter("apellidos");
 			String usuario = request.getParameter("usuario");
@@ -49,21 +50,25 @@ public class ServletRegistro extends HttpServlet {
 			String cp = request.getParameter("cp");
 			String telefono = request.getParameter("telefono");
 			
-			if (nombre == null || apellidos == null || usuario == null || email == null || password == null || domicilio == null || cp == null || telefono == null) {
+			if (nombre == null || apellidos == null || usuario == null || email == null ||
+					password == null || domicilio == null || cp == null || telefono == null) {
 				session.setAttribute("error_register","Algun campo vacio");
 				response.sendRedirect("register.jsp");
+				return;
 			}
 			
 			Usuario usu = new Usuario(usuario, nombre, apellidos, password, domicilio, cp, telefono, email);
 			
 			if(UsuarioDao.insertarUsuario(usu)){
+				session.removeAttribute("error_register");
 				response.sendRedirect(".");
 				return;
 			}
 			
-			session.setAttribute("error_register","Usuario ya existe o incorrecto");
+			session.setAttribute("error_register","Usuario ya existe o es incorrecto");
 		} catch (Exception e) {
 			session.setAttribute("error_register","ha ocurrido un error inesperado.");
+			System.out.println(e.getMessage());
 		}
 		response.sendRedirect("register.jsp");
 	}

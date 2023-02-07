@@ -33,7 +33,8 @@ public class ServletLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 		 	if(request.getParameter("logout") != null) {
-		 		request.getSession().setAttribute("usuario", null);
+		 		request.getSession().removeAttribute("usuario");
+		 		request.getSession().removeAttribute("carro");
 		 	}
 		 	
 		} catch (Exception e) {
