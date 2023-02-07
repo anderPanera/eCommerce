@@ -29,8 +29,17 @@ public class ServletCarro extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		HttpSession session = request.getSession(true);
+		
+		Carro carro = (Carro) session.getAttribute("carro");
+		
+		if (request.getParameter("modo").equals("vaciar")) {
+			carro.borrar();
+		}
+		
+		response.sendRedirect(".");
+		return;
 	}
 
 	/**
@@ -49,6 +58,8 @@ public class ServletCarro extends HttpServlet {
 		if (request.getParameter("modo").equals("eliminar")) {
 			carro.borrarLinea(Integer.parseInt(request.getParameter("id")));
 		}
+		
+		
 		
 		response.sendRedirect(".");
 		return;

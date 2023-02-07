@@ -15,7 +15,7 @@
     <c:forEach var="item" items="${carro.carro}">
     	<div class="card mb-3">
 		  <div class="card-body">
-		    <h5 class="card-title">${item.value.producto.nombre} - ${item.value.totalLinea()}<i class="bi bi-currency-euro"></i></h5>
+		    <h5 class="card-title">${item.value.producto.nombre} - ${item.value.totalLinea()} <img style="filter: invert(1);" height="18" src="/eCommerce/img/coin.webp"></h5>
 		    
 		    <form action="ServletCarro" method="post">
 		    	<input type="hidden" value="${item.key}" name="id">
@@ -30,11 +30,13 @@
     </c:forEach>
     
   </div>
-  <div class="offcanvas-header bg-body-tertiary">
-    	<div>
-    		<button type="button" class="btn btn-success">Comprar</button>
-    		Total: ${carro.totalPrecio()}<i class="bi bi-currency-euro"></i>
-    	</div>
-		<button type="button" class="btn btn-danger">Vaciar</button>
-  </div>
+  <c:if test="${carro.length() > 0}">
+	  <div class="offcanvas-header bg-body-tertiary">
+	    	<div>
+	    		<button type="button" class="btn btn-success">Comprar</button>
+	    		Total: ${carro.totalPrecio()} <img style="filter: invert(1);" height="18" src="/eCommerce/img/coin.webp">
+	    	</div>
+			<a href="ServletCarro?modo=vaciar" class="btn btn-danger">Vaciar</a>
+	  </div>
+</c:if>
 </div>
