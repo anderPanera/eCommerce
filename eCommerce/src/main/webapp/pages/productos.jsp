@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div id="productos" class="container my-5">
+<div id="productos" class="container my-5 pt-5">
 	<h2 class="text-center">PRODUCTOS</h2>
 	<div class="row mt-5">
 		<c:forEach var="p" items="${productos}">

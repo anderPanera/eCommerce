@@ -9,9 +9,6 @@
     <c:if test="${carro.length() == 0}">
     	<div>Actualmente no hay ningun item en tu carro</div>
     </c:if>
-    <c:if test="${carro.length() > 0}">
-    	<div class="mb-3"><a href="paginadecarro.jsp">Ver mi carro detalladamente</a></div>
-    </c:if>
     <c:forEach var="item" items="${carro.carro}">
     	<div class="card mb-3">
 		  <div class="card-body">
