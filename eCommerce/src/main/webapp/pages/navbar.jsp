@@ -25,7 +25,7 @@
       	  <a class="btn btn-outline-light me-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
   				<i class="bi bi-cart"></i> ${carro.length()}
 		  </a>
-		  <a href="ServletLogin?logout" type="button" class="btn btn-light">Logout</a>
+		  <a href="/eCommerce/ServletLogin?logout" type="button" class="btn btn-light">Logout</a>
       </c:if>
     </div>
   </div>

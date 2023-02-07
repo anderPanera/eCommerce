@@ -32,6 +32,14 @@ public class Carro {
 		}
 	}
 	
+	public void unoMas(int id) {
+		carro.put(id, carro.get(id).unoMas());
+	}
+	
+	public void unoMenos(int id) {
+		carro.put(id, carro.get(id).unoMenos());
+	}
+	
 	public int totalPrecio() {
 		int total = 0;
 		
@@ -44,6 +52,12 @@ public class Carro {
 	
 	public void borrar() {
 		carro.clear();
+	}
+	
+	public void cambiarIdsPedido(int id) {
+		for (int key : carro.keySet()) {
+			carro.get(key).setIdpedido(id);
+		}
 	}
 	
 	public int length() {

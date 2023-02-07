@@ -35,8 +35,17 @@ public class LineaPedido {
 		return cantidad * producto.getPrecio();
 	}
 	
+	public void setIdpedido(int id) {
+		this.idpedido = id;
+	}
+	
 	public LineaPedido unoMas() {
 		LineaPedido lp2 = new LineaPedido(this.getId(), this.getCantidad()+1, this.getIdpedido(), this.getProducto());
+		return lp2;
+	}
+	
+	public LineaPedido unoMenos() {
+		LineaPedido lp2 = new LineaPedido(this.getId(), this.getCantidad()-1, this.getIdpedido(), this.getProducto());
 		return lp2;
 	}
 	
