@@ -31,6 +31,13 @@ public class ServletLogin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		try {
+		 	if(request.getParameter("logout") != null) {
+		 		request.getSession().setAttribute("usuario", null);
+		 	}
+		 	
+		} catch (Exception e) {
+		}
 		response.sendRedirect(".");
 	}
 
