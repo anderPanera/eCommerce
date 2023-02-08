@@ -2,9 +2,12 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import beans.LineaPedido;
+import beans.Producto;
 import conex.BDConex;
 
 public class LineaPedidoDao {
@@ -34,7 +37,39 @@ public class LineaPedidoDao {
 		}
 		
 		return insertado;
+	}
+	
+	public static ArrayList<LineaPedido> dameLineaPedidosPedido(int idpedido) {
 		
+		String sql = "select * from lineapedido where idpedido = ?";
+		
+		ArrayList<LineaPedido> listaLineaPedidos = new ArrayList<LineaPedido>();
+		
+		try (Connection con = conex.getConnection()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, idpedido);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				int cantidad = rs.getInt("cantidad");
+				int idproducto = rs.getInt("idproducto");
+				
+				Producto producto = ProductoDao.getProducto(idproducto);
+				
+				LineaPedido lp = new LineaPedido(id, cantidad, idpedido, producto);
+				listaLineaPedidos.add(lp);
+			}
+			
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		
+		return listaLineaPedidos;
 	}
 	
 }

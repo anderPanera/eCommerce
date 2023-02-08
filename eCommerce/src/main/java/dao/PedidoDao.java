@@ -6,8 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import beans.Pedido;
+import beans.Usuario;
 import conex.BDConex;
 
 public class PedidoDao {
@@ -64,5 +66,42 @@ public class PedidoDao {
 		
 		return insertado;
 	}
+	
+	public static ArrayList<Pedido> damePedidosUsuario(Usuario usuario) {
+		
+		String sql = "select * from pedido where usuario = ?";
+		
+		ArrayList<Pedido> listaPedidos = new ArrayList<Pedido>();
+		
+		try (Connection con = conex.getConnection()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, usuario.getUsuario());
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				int total = rs.getInt("total");
+				Date date = rs.getDate("fecha");
+				
+				Pedido pedido = new Pedido(id, usuario, total, date);
+				listaPedidos.add(pedido);
+			}
+			
+			rs.close();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return listaPedidos;
+	}
+	
+	
+	
+	
 	
 }
