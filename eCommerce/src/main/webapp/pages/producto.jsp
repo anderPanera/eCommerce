@@ -22,7 +22,7 @@
 			<div class="card mb-3">
 			  <div class="row g-0">
 			    <div class="col-md-4">
-			      <img src='/img.webp' class="img-fluid rounded-start" alt="${item.nombre}">
+			      <img src='/eCommerce/img/${producto.imagen}.webp' class="img-fluid rounded-start" alt="${producto.nombre}">
 			    </div>
 			    <div class="col-md-8">
 			      <div class="card-body">
