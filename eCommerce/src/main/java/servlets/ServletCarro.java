@@ -63,6 +63,7 @@ public class ServletCarro extends HttpServlet {
 				LineaPedidoDao.insertarLineaPedido(carromap.get(key));
 			}
 			
+			session.removeAttribute("pedidoslineas");
 			carro.borrar();
 		}
 		
