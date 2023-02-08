@@ -21,7 +21,7 @@
 		</div>
       </c:if>
       <c:if test="${usuario != null }">
-      	  <span class="btn btn-outline-light me-2"><i class="bi bi-person-fill me-1"></i><c:out value="${usuario.nombre}"></c:out></span>
+      	  <a href="/eCommerce/pages/perfil.jsp" class="btn btn-outline-light me-2"><i class="bi bi-person-fill me-1"></i><c:out value="${usuario.nombre}"></c:out></a>
       	  <a class="btn btn-outline-light me-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
   				<i class="bi bi-cart"></i> ${carro.length()}
 		  </a>
