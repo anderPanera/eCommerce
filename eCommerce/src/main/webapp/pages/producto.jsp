@@ -16,20 +16,25 @@
 	</style>
 </head>
 <body>
+	<!-- Incluimos el navbar -->
 	<jsp:include page="../pages/navbar.jsp" />
 	<div id="productos" class="container margen">
+		<!-- Si se le pasa un producto: -->
 		<c:if test="${producto != null}">
 			<div class="card mb-3">
 			  <div class="row g-0">
+			    <!-- Imagen del producto: -->
 			    <div class="col-md-4">
 			      <img src='/eCommerce/img/${producto.imagen}.webp' class="img-fluid rounded-start" alt="${producto.nombre}">
 			    </div>
 			    <div class="col-md-8">
+			      <!-- Datos del producto: -->
 			      <div class="card-body">
 			        <h5 class="card-title display-1">${producto.nombre}</h5>
 			        <p class="card-text display-6">${producto.descripcion}</p>
 			        <p class="card-text display-6">${producto.precio} <img style="filter: invert(1);" height="35" src="/eCommerce/img/coin.webp"></p>
 			      </div>
+			      	<!-- Boton para ir atras -->
 					<div class="d-flex justify-content-end mb-2 me-2">
 						<a href=".." class="btn btn-danger">Atras</a>
 					</div>
