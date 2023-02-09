@@ -9,8 +9,11 @@
 </head>
 <body>
 	<jsp:include page="pages/navbar.jsp" />
+	<c:if test="${categorias == null}">
+		<jsp:forward page="/ServletCategoria"></jsp:forward>
+	</c:if>
 	<c:if test="${productos == null || productos.size() == 0}">
-		<jsp:forward page="Productos"></jsp:forward>
+		<jsp:forward page="/ServletProducto"></jsp:forward>
 	</c:if>
 	<jsp:include page="pages/productos.jsp" />
 </body>

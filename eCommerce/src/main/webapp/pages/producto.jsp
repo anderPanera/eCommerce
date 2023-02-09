@@ -16,6 +16,7 @@
 	</style>
 </head>
 <body>
+	<!-- <c:set var="categorias" scope="session" value="null"/> -->
 	<!-- Incluimos el navbar -->
 	<jsp:include page="../pages/navbar.jsp" />
 	<div id="productos" class="container margen">

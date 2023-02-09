@@ -35,7 +35,7 @@
 			<c:forEach var="pedido" items="${pedidoslineas}">
 				<div class="accordion-item">
 				    <h2 class="accordion-header" id="heading${pedido.key.id}">
-				      	<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${pedido.key.id}" aria-expanded="true" aria-controls="collapseOne">
+				      	<button class="accordion-button bg-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${pedido.key.id}" aria-expanded="true" aria-controls="collapseOne">
 				        	Pedido con ID: ${pedido.key.id} - ${pedido.key.fecha}
 				      	</button>
 				    </h2>

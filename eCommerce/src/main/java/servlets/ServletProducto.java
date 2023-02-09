@@ -1,9 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,12 +13,13 @@ import javax.servlet.http.HttpSession;
 import beans.Carro;
 import beans.LineaPedido;
 import beans.Producto;
+import dao.CategoriaDao;
 import dao.ProductoDao;
 
 /**
  * Servlet implementation class Productos
  */
-@WebServlet("/Productos")
+@WebServlet("/ServletProducto")
 public class ServletProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -63,8 +62,19 @@ public class ServletProducto extends HttpServlet {
 				carro.anadirLinea(lp);
 			}
 		} else {
-			ArrayList<Producto> lista = ProductoDao.getProductos();
-			session.setAttribute("productos", lista);
+			ArrayList<Producto> lista = new ArrayList<Producto>();
+			if (request.getParameter("cat") != null) {
+				String cat = request.getParameter("cat");
+				for (Integer id : CategoriaDao.getIdsCategoria(cat)) {
+					lista.add(ProductoDao.getProducto(id));
+				}
+				session.setAttribute("productos", lista);
+				response.sendRedirect("/eCommerce/?cat=" + cat);
+				return;
+			} else {
+				lista = ProductoDao.getProductos();
+				session.setAttribute("productos", lista);
+			}
 		}
 		
 		session.setAttribute("carro", carro);
@@ -76,7 +86,6 @@ public class ServletProducto extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		doGet(request, response);
 	}
 

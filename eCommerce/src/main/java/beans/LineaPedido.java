@@ -31,7 +31,7 @@ public class LineaPedido {
 		return producto;
 	}
 	
-	public double getPrecioLineaTotal() {
+	public int getPrecioLineaTotal() {
 		return cantidad * producto.getPrecio();
 	}
 	
