@@ -16,7 +16,7 @@
 	</style>
 </head>
 <body>
-	<!-- <c:set var="categorias" scope="session" value="null"/> -->
+	<c:remove var="categorias" scope="session"/>
 	<!-- Incluimos el navbar -->
 	<jsp:include page="../pages/navbar.jsp" />
 	<div id="productos" class="container margen">
@@ -25,8 +25,8 @@
 			<div class="card mb-3">
 			  <div class="row g-0">
 			    <!-- Imagen del producto: -->
-			    <div class="col-md-4">
-			      <img src='/eCommerce/img/${producto.imagen}.webp' class="img-fluid rounded-start" alt="${producto.nombre}">
+			    <div class="col-md-4 position-relative">
+			      <img src='/eCommerce/img/${producto.imagen}.webp' class="img-fluid rounded-start position-absolute top-50 start-50 translate-middle" alt="${producto.nombre}">
 			    </div>
 			    <div class="col-md-8">
 			      <!-- Datos del producto: -->

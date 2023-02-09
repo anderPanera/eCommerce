@@ -78,7 +78,6 @@ public class ServletProducto extends HttpServlet {
 		}
 		
 		session.setAttribute("carro", carro);
-		
 		response.sendRedirect(".");
 	}
 
