@@ -117,7 +117,7 @@ public class ProductoDao {
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setString(1, producto.getNombre());
-			ps.setString(2, producto.getNombre());
+			ps.setString(2, producto.getDescripcion());
 			ps.setString(3, producto.getImagen());
 			ps.setInt(4, producto.getPrecio());
 			ps.setInt(5, producto.getId());
@@ -127,7 +127,7 @@ public class ProductoDao {
 			ps.close();
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		return actualizado;
@@ -151,7 +151,7 @@ public class ProductoDao {
 			
 			
 		} catch (SQLException e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		return eliminado;
