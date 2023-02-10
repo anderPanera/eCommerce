@@ -85,8 +85,8 @@ public class UsuarioDao {
 	}
 	
 	public static boolean insertarUsuario(Usuario usuario) {
-		String sql = "INSERT usuario (`usuario`, `nombre`, `apellidos`, `password`, `domicilio`, `codigopostal`,"
-				+ " `telefono`, `email`) VALUES ( ?, ? , ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT usuario (`usuario`, `rol`, `nombre`, `apellidos`, `password`, `domicilio`, `codigopostal`,"
+				+ " `telefono`, `email`) VALUES ( ?, 'usuario', ? , ?, ?, ?, ?, ?, ?)";
 		try (Connection con = conex.getConnection()) {
 			PreparedStatement ps = con.prepareStatement(sql);
 			
