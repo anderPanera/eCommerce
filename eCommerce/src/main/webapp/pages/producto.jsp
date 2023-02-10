@@ -17,6 +17,7 @@
 </head>
 <body>
 	<c:remove var="categorias" scope="session"/>
+	<c:remove var="productos" scope="session"/>
 	<!-- Incluimos el navbar -->
 	<jsp:include page="../pages/navbar.jsp" />
 	<div id="productos" class="container margen">
