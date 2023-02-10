@@ -29,18 +29,28 @@
 			    </div>
 		    </c:if>
 		    <c:if test='<%= request.getParameter("editar") != null%>'>
-		    	<form class="row fs-5 justify-content-around">
-			    	<label class="col-6"><b>Nombre</b>:</label><input type="text" value="${usuario.nombre}"> 
-			    	<label class="col-6"><b>Apellidos</b>:</label> <input type="text" value="${usuario.apellidos}">
-			    	<label class="col-6"><b>Domicilio</b>:</label> ${usuario.domicilio}
-			   		<label class="col-6"><b>Codigo Postal</b>:</label> ${usuario.codigopostal}
-			    	<label class="col-6"><b>Telefono</b>:</label> ${usuario.telefono}
-			    	<label class="col-6"><b>Email</b>:</label> ${usuario.email}
+		    	<form class="row fs-5 justify-content-around" action="/eCommerce/ServletRegistro">
+			    	<label class="col-6" for="nombre"><b>Nombre</b>:</label>
+			    	<input class="col-6" type="text" id="nombre" name="nombre" value="${usuario.nombre}"> 
+			    	<label class="col-6" for="apellidos"><b>Apellidos</b>:</label>
+			    	<input class="col-6" type="text" id="apellidos" name="apellidos" value="${usuario.apellidos}">
+			    	<label class="col-6" for="domicilio"><b>Domicilio</b>:</label>
+			    	<input class="col-6" type="text" id="domicilio" name="domicilio" value="${usuario.domicilio}">
+			   		<label class="col-6" for="cp"><b>Codigo Postal</b>:</label>
+			   		<input class="col-6" type="text" id="cp" name="cp" value="${usuario.codigopostal}">
+			    	<label class="col-6" for="telefono"><b>Telefono</b>:</label>
+			    	<input class="col-6" type="text" id="telefono" name="telefono" value="${usuario.telefono}">
+			    	<label class="col-6" for="email"><b>Email</b>:</label>
+			    	<input class="col-6" type="email" id="email" name="email" value="${usuario.email}">
+			    	<input class=" col-6 btn btn-success" name="cambiar" type="submit" value="cambiar">
+			    	<a class=" col-6 btn btn-secondary" href="perfil.jsp">Cancelar</a>
 			    </form>
 		    </c:if>
 		  </div>
 		</div>
-		<h2>Mis pedidos</h2>
+		<c:if test="${ usuario.rol != 'admin' }">
+			<h2>Mis pedidos</h2>
+		</c:if>
 		<c:if test="${pedidoslineas == null}">
 			<jsp:forward page="/ServletPedidos"></jsp:forward>
 		</c:if>

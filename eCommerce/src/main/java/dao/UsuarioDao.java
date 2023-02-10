@@ -108,5 +108,32 @@ public class UsuarioDao {
 		}
 		return true;
 	}
-
+	
+	public static boolean actualizarUsuario(Usuario usuario) {
+		String sql = "UPDATE usuario SET nombre=?, apellidos=?, domicilio=?, codigopostal=?, telefono=?, email=? WHERE usuario = ?";
+		
+		boolean actualizado = false;
+		
+		try (Connection con = conex.getConnection()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, usuario.getNombre());
+			ps.setString(2, usuario.getApellidos());
+			ps.setString(3, usuario.getDomicilio());
+			ps.setString(4, usuario.getCodigopostal());
+			ps.setString(5, usuario.getTelefono());
+			ps.setString(6, usuario.getEmail());
+			ps.setString(7, usuario.getUsuario());
+			
+			actualizado = ps.execute();
+			
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return actualizado;
+	}
+	
 }

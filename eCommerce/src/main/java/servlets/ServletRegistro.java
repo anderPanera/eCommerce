@@ -30,8 +30,26 @@ public class ServletRegistro extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.sendRedirect(".");
+		if(request.getParameter("cambiar") != null) {
+			String nombre = request.getParameter("nombre");
+			String apellidos = request.getParameter("apellidos");
+			String email = request.getParameter("email");
+			String domicilio = request.getParameter("domicilio");
+			String cp = request.getParameter("cp");
+			String telefono = request.getParameter("telefono");
+			Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+			
+			usuario.setApellidos(apellidos);
+			usuario.setNombre(nombre);
+			usuario.setCodigopostal(cp);
+			usuario.setDomicilio(domicilio);
+			usuario.setEmail(email);
+			usuario.setTelefono(telefono);
+			
+			UsuarioDao.actualizarUsuario(usuario);
+			response.sendRedirect("pages/perfil.jsp");
+		}
+			
 	}
 
 	/**

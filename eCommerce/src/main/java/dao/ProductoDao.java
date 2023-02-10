@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
 
 import beans.Producto;
 import conex.BDConex;
