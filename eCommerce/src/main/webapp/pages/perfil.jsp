@@ -14,17 +14,30 @@
 		<h1 class="text-black">Mi Cuenta</h1>
 		<div class="card mb-3">
 		  <div class="card-body">
-		  	<div class="row fs-5 justify-content-around">
-		    	<span class="col-6"><b>Nombre</b>: ${usuario.nombre}</span>
-		    	<span class="col-6"><b>Apellidos</b>: ${usuario.apellidos}</span>
-		    	<span class="col-6"><b>Domicilio</b>: ${usuario.domicilio}</span>
-		   		<span class="col-6"><b>Codigo Postal</b>: ${usuario.codigopostal}</span>
-		    	<span class="col-6"><b>Telefono</b>: ${usuario.telefono}</span>
-		    	<span class="col-6"><b>Email</b>: ${usuario.email}</span>
-		    </div>
-		    <div class="row justify-content-center">
-		    	<a class=" col-2 mt-2 btn bg-info"> Editar</a>
-		    </div>
+		 
+		  <c:if test='<%= request.getParameter("editar") == null%>'>
+			  	<div class="row fs-5 justify-content-around">
+			    	<span class="col-6"><b>Nombre</b>: ${usuario.nombre}</span>
+			    	<span class="col-6"><b>Apellidos</b>: ${usuario.apellidos}</span>
+			    	<span class="col-6"><b>Domicilio</b>: ${usuario.domicilio}</span>
+			   		<span class="col-6"><b>Codigo Postal</b>: ${usuario.codigopostal}</span>
+			    	<span class="col-6"><b>Telefono</b>: ${usuario.telefono}</span>
+			    	<span class="col-6"><b>Email</b>: ${usuario.email}</span>
+			    </div>
+			    <div class="row justify-content-center">
+			    	<a class=" col-2 mt-2 btn bg-info" href="perfil.jsp?editar=true">Editar</a>
+			    </div>
+		    </c:if>
+		    <c:if test='<%= request.getParameter("editar") != null%>'>
+		    	<form class="row fs-5 justify-content-around">
+			    	<label class="col-6"><b>Nombre</b>:</label><input type="text" value="${usuario.nombre}"> 
+			    	<label class="col-6"><b>Apellidos</b>:</label> <input type="text" value="${usuario.apellidos}">
+			    	<label class="col-6"><b>Domicilio</b>:</label> ${usuario.domicilio}
+			   		<label class="col-6"><b>Codigo Postal</b>:</label> ${usuario.codigopostal}
+			    	<label class="col-6"><b>Telefono</b>:</label> ${usuario.telefono}
+			    	<label class="col-6"><b>Email</b>:</label> ${usuario.email}
+			    </form>
+		    </c:if>
 		  </div>
 		</div>
 		<h2>Mis pedidos</h2>

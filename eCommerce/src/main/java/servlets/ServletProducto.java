@@ -110,8 +110,6 @@ public class ServletProducto extends HttpServlet {
 			Producto producto = new Producto(nombre, desc, imagen, precio);
 			
 			ProductoDao.insertarProducto(producto);
-			
-			session.removeAttribute("productos");
 		}
 		
 		if(request.getParameter("modo").equals("cambiar")) {
@@ -126,15 +124,15 @@ public class ServletProducto extends HttpServlet {
 				ProductoDao.actualizarProducto(p);
 			} catch (Exception e) {
 			}
-			session.removeAttribute("productos");
 		}
 		
 		if(request.getParameter("modo").equals("eliminar")) {
 			Producto p = (Producto) session.getAttribute("producto");
 			ProductoDao.eliminarProducto(p);
+			
 		}
 		
-		
+		session.removeAttribute("productos");
 		response.sendRedirect(".");
 	}
 
