@@ -57,7 +57,7 @@ public class ServletRegistro extends HttpServlet {
 				return;
 			}
 			
-			Usuario usu = new Usuario(usuario, nombre, apellidos, password, domicilio, cp, telefono, email);
+			Usuario usu = new Usuario(usuario, "usuario", nombre, apellidos, password, domicilio, cp, telefono, email);
 			
 			if(UsuarioDao.insertarUsuario(usu)){
 				session.removeAttribute("error_register");

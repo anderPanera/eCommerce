@@ -3,6 +3,7 @@ package beans;
 public class Usuario {
 	
 	private String usuario;
+	private String rol;
 	private String nombre;
 	private String apellidos;
 	private String password;
@@ -11,10 +12,11 @@ public class Usuario {
 	private String telefono;
 	private String email;
 	
-	public Usuario(String usuario, String nombre, String apellidos, String password, String domicilio,
+	public Usuario(String usuario, String rol, String nombre, String apellidos, String password, String domicilio,
 			String codigopostal, String telefono, String email) {
 		super();
 		this.usuario = usuario;
+		this.rol = rol;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.password = password;

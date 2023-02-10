@@ -29,6 +29,7 @@ public class UsuarioDao {
 			
 			if (rs.next()) {
 				String usuarioC = rs.getString("usuario");
+				String rol = rs.getString("rol");
 				String nombre = rs.getString("nombre");
 				String apellidos = rs.getString("apellidos");
 				String passwordC = rs.getString("password");
@@ -37,7 +38,7 @@ public class UsuarioDao {
 				String telefono = rs.getString("telefono");
 				String email = rs.getString("email");
 				
-				usuarioO = new Usuario(usuarioC, nombre, apellidos, passwordC, domicilio, codigopostal, telefono, email);
+				usuarioO = new Usuario(usuarioC, rol, nombre, apellidos, passwordC, domicilio, codigopostal, telefono, email);
 			}
 			
 			rs.close();

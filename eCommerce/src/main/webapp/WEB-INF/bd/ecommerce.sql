@@ -247,6 +247,7 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `imagen`, `precio`) VALUE
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `usuario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `rol` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `apellidos` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `password` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -262,8 +263,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`usuario`, `nombre`, `apellidos`, `password`, `domicilio`, `codigopostal`, `telefono`, `email`) VALUES
-('ander', 'Ander', 'Panera', 'dw2', 'calle', '01001', '666777888', 'ander@gmail.com'),
-('pablo', 'Pablo', 'Gonzalez', 'dw2', 'calee', '01001', '666777888', 'pablo@gmail.com');
+('ander', 'admin', 'Ander', 'Panera', 'dw2', 'calle', '01001', '666777888', 'ander@gmail.com'),
+('pablo', 'usuario', 'Pablo', 'Gonzalez', 'dw2', 'calee', '01001', '666777888', 'pablo@gmail.com');
 
 --
 -- Restricciones para tablas volcadas
