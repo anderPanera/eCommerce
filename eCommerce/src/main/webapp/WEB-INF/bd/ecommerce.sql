@@ -262,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`usuario`, `nombre`, `apellidos`, `password`, `domicilio`, `codigopostal`, `telefono`, `email`) VALUES
+INSERT INTO `usuario` (`usuario`, `rol`, `nombre`, `apellidos`, `password`, `domicilio`, `codigopostal`, `telefono`, `email`) VALUES
 ('ander', 'admin', 'Ander', 'Panera', 'dw2', 'calle', '01001', '666777888', 'ander@gmail.com'),
 ('pablo', 'usuario', 'Pablo', 'Gonzalez', 'dw2', 'calee', '01001', '666777888', 'pablo@gmail.com');
 

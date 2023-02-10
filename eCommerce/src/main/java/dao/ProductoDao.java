@@ -79,6 +79,32 @@ public class ProductoDao {
 		return producto;
 	}
 	
+	public static boolean insertarProducto(Producto producto) {
+		
+		String sql = "INSERT INTO producto (nombre, descripcion, imagen, precio) VALUES (?,?,?,?)";
+		
+		boolean insertado = false;
+		
+		try (Connection con = conex.getConnection()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, producto.getNombre());
+			ps.setString(2, producto.getDescripcion());
+			ps.setString(3, producto.getImagen());
+			ps.setInt(4, producto.getPrecio());
+			
+			insertado = ps.execute();
+			
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		
+		return insertado;
+		
+	}
+	
 	
 	
 }

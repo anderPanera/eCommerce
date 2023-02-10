@@ -95,10 +95,21 @@ public class ServletProducto extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		
+		if (request.getParameter("modo").equals("crear")) {
+			String nombre = request.getParameter("nombre");
+			String desc = request.getParameter("desc");
+			int precio = Integer.parseInt(request.getParameter("precio"));
+			String imagen = request.getParameter("imagen");
+			
+			Producto producto = new Producto(nombre, desc, imagen, precio);
+			
+			ProductoDao.insertarProducto(producto);
+			
+			session.removeAttribute("productos");
+		}
 		
 		
-		
-		
+		response.sendRedirect(".");
 	}
 
 }

@@ -21,6 +21,9 @@
 		</div>
       </c:if>
       <c:if test="${usuario != null }">
+      	<c:if test="${usuario.rol == 'admin'}">
+      		<button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear Producto</button>
+      	</c:if>
       	  <a href="/eCommerce/pages/perfil.jsp" class="btn btn-outline-light me-2"><i class="bi bi-person-fill me-1"></i><c:out value="${usuario.nombre}"></c:out></a>
       	  <a class="btn btn-outline-light me-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
   				<i class="bi bi-cart"></i> ${carro.length()}
@@ -30,5 +33,40 @@
     </div>
   </div>
 </nav>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Crear nuevo producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="ServletProducto" method="post">
+	      <div class="modal-body">
+	        <div class="mb-3">
+			    <label for="nombre" class="form-label">Nombre producto</label>
+			    <input type="text" class="form-control" id="nombre" name="nombre">
+			  </div>
+			  <div class="mb-3">
+			    <label for="desc" class="form-label">Descripcion</label>
+			    <input type="text" class="form-control" id="desc" name="desc">
+			  </div>
+			  <div class="mb-3">
+			    <label for="precio" class="form-label">Precio</label>
+			    <input type="text" class="form-control" id="precio" name="precio">
+			  </div>
+			  <div class="mb-3">
+			    <label for="imagen" class="form-label">Imagen (sin extensiones)</label>
+			    <input type="text" class="form-control" id="imagen" name="imagen">
+			  </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+	        <button type="submit" name="modo" value="crear" class="btn btn-primary">Crear</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <jsp:include page="carronav.jsp" />
