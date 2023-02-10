@@ -134,6 +134,28 @@ public class ProductoDao {
 		
 	}
 	
-	
+	public static boolean eliminarProducto(Producto producto) {
+		
+		String sql = "DELETE FROM producto WHERE id = ?";
+		
+		boolean eliminado = false;
+		
+		try (Connection con = conex.getConnection()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, producto.getId());
+			
+			eliminado = ps.execute();
+			
+			ps.close();
+			
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		
+		return eliminado;
+		
+	}
 	
 }
