@@ -1,5 +1,6 @@
 package servlets;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -124,7 +125,6 @@ public class ServletProducto extends HttpServlet {
 				p.setPrecio(precio);
 				ProductoDao.actualizarProducto(p);
 			} catch (Exception e) {
-				
 			}
 			session.removeAttribute("productos");
 		}

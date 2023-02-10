@@ -55,11 +55,11 @@
 			      <!-- Datos del producto: -->
 			      <div class="card-body">
 			        <label class="card-title display-1" for="titulo">Titulo</label>
-			        <input id="titulo" type="text" value="${producto.nombre}"><br>
+			        <input id="titulo" name="titulo" type="text" value="${producto.nombre}"><br>
 			        <label class="card-text display-6" for="descripcion">Descripcion</label>
-			        <input type="text" id="descripcion" value="${producto.descripcion}"><br>
+			        <input type="text" id="descripcion" name="descripcion" value="${producto.descripcion}"><br>
 			        <label class="card-text display-6" for="precio">Precio</label>
-			        <input type="text" value="${ producto.precio }"> <img style="filter: invert(1);" height="35" src="/eCommerce/img/coin.webp"><br>
+			        <input type="text" name="precio" value="${ producto.precio }"> <img style="filter: invert(1);" height="35" src="/eCommerce/img/coin.webp"><br>
 			      </div>
 			      	<!-- Boton para ir atras -->
 					<div class="d-flex justify-content-end mb-2 me-2">
