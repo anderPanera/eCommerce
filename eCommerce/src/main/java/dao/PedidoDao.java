@@ -1,12 +1,13 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 
 import beans.Pedido;
 import beans.Usuario;
@@ -53,8 +54,9 @@ public class PedidoDao {
 			ps.setInt(1, pedido.getId());
 			ps.setString(2, pedido.getUsuario().getUsuario());
 			ps.setInt(3, pedido.getTotal());
-			Date date = new Date(pedido.getFecha().getYear(), pedido.getFecha().getMonth(), pedido.getFecha().getDay());
-			ps.setDate(4, date);
+			Date date = new Date();
+			
+			ps.setDate(4, new java.sql.Date(date.getTime()));
 			
 			insertado = ps.execute();
 			
