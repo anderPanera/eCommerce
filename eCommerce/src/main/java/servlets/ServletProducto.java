@@ -55,8 +55,10 @@ public class ServletProducto extends HttpServlet {
 		
 		if (request.getParameter("id") != null) {
 			Integer id = Integer.parseInt(request.getParameter("id"));
-			if (request.getParameter("info") != null) {
+			if (request.getParameter("info") != null || request.getParameter("editar") != null) {
 				session.setAttribute("producto", ProductoDao.getProducto(id));
+				String accion = request.getParameter("info") != null ? "info" : "editar";
+				session.setAttribute("accion", accion);
 				response.sendRedirect("pages/producto.jsp");
 				return;
 			}
@@ -95,6 +97,9 @@ public class ServletProducto extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		
+		
+		
+		
 		if (request.getParameter("modo").equals("crear")) {
 			String nombre = request.getParameter("nombre");
 			String desc = request.getParameter("desc");
@@ -106,6 +111,27 @@ public class ServletProducto extends HttpServlet {
 			ProductoDao.insertarProducto(producto);
 			
 			session.removeAttribute("productos");
+		}
+		
+		if(request.getParameter("modo").equals("cambiar")) {
+			try {
+				String titulo = request.getParameter("titulo");
+				String descripcion = request.getParameter("descripcion");
+				int precio = Integer.parseInt(request.getParameter("precio"));
+				Producto p = (Producto) session.getAttribute("producto");
+				p.setNombre(titulo);
+				p.setDescripcion(descripcion);
+				p.setPrecio(precio);
+				ProductoDao.actualizarProducto(p);
+			} catch (Exception e) {
+				
+			}
+			session.removeAttribute("productos");
+		}
+		
+		if(request.getParameter("modo").equals("eliminar")) {
+			Producto p = (Producto) session.getAttribute("producto");
+			ProductoDao.eliminarProducto(p);
 		}
 		
 		

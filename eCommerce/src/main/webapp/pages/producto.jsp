@@ -22,7 +22,7 @@
 	<jsp:include page="../pages/navbar.jsp" />
 	<div id="productos" class="container margen">
 		<!-- Si se le pasa un producto: -->
-		<c:if test="${producto != null}">
+		<c:if test="${producto != null && accion == 'info'}">
 			<div class="card mb-3">
 			  <div class="row g-0">
 			    <!-- Imagen del producto: -->
@@ -44,7 +44,33 @@
 			  </div>
 			</div>
 		</c:if>
-		
+		<c:if test="${producto != null && accion == 'editar'}">
+			<div class="card mb-3">
+			  <div class="row g-0">
+			    <!-- Imagen del producto: -->
+			    <div class="col-md-4 position-relative">
+			      <img src='/eCommerce/img/${producto.imagen}.webp' class="img-fluid rounded-start position-absolute top-50 start-50 translate-middle" alt="${producto.nombre}">
+			    </div>
+			    <form class="col-md-8" method="post" action="/eCommerce/ServletProducto">
+			      <!-- Datos del producto: -->
+			      <div class="card-body">
+			        <label class="card-title display-1" for="titulo">Titulo</label>
+			        <input id="titulo" type="text" value="${producto.nombre}"><br>
+			        <label class="card-text display-6" for="descripcion">Descripcion</label>
+			        <input type="text" id="descripcion" value="${producto.descripcion}"><br>
+			        <label class="card-text display-6" for="precio">Precio</label>
+			        <input type="text" value="${ producto.precio }"> <img style="filter: invert(1);" height="35" src="/eCommerce/img/coin.webp"><br>
+			      </div>
+			      	<!-- Boton para ir atras -->
+					<div class="d-flex justify-content-end mb-2 me-2">
+						<input class="btn btn-success" name="modo" type="submit" value="cambiar" />
+						<input class="btn btn-danger" name="eliminar" type="submit" value="eliminar" />
+						<a href=".." class="btn btn-info">Atras</a>
+					</div>
+			    </form>
+			  </div>
+			</div>
+		</c:if>
 	</div>
 </body>
 </html>

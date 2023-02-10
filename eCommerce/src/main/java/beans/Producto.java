@@ -45,9 +45,17 @@ public class Producto {
 		return precio;
 	}
 	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 	
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 	
-	
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
 	
 	
 	
