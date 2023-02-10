@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 10-02-2023 a las 07:06:42
+-- Tiempo de generación: 10-02-2023 a las 09:38:45
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -114,27 +114,11 @@ CREATE TABLE IF NOT EXISTS `lineapedido` (
 --
 
 INSERT INTO `lineapedido` (`id`, `cantidad`, `idpedido`, `idproducto`) VALUES
-(1, 1, 1, 2),
-(1, 1, 2, 2),
-(1, 2, 3, 2),
-(1, 1, 4, 1),
-(1, 1, 5, 1),
-(1, 3, 6, 2),
-(1, 1, 7, 12),
-(2, 1, 1, 3),
-(2, 1, 2, 3),
-(2, 5, 3, 3),
-(2, 2, 4, 2),
-(2, 2, 6, 3),
-(2, 1, 7, 3),
-(3, 1, 2, 4),
-(3, 5, 3, 4),
-(3, 1, 6, 4),
-(3, 6, 7, 2),
-(4, 3, 3, 8),
-(4, 1, 7, 4),
-(5, 2, 3, 11),
-(5, 1, 7, 1);
+(1, 4, 1, 1),
+(1, 1, 2, 1),
+(2, 3, 1, 2),
+(3, 2, 1, 3),
+(4, 1, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -150,20 +134,15 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `usuario` (`usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `pedido`
 --
 
 INSERT INTO `pedido` (`id`, `usuario`, `total`, `fecha`) VALUES
-(1, 'ander', 1750, '2023-02-03 00:00:00'),
-(2, 'ander', 2625, '2023-02-03 00:00:00'),
-(3, 'ander', 16875, '2023-02-03 00:00:00'),
-(4, 'ander', 2625, '2023-02-03 00:00:00'),
-(5, 'ander', 875, '2023-02-03 00:00:00'),
-(6, 'ander', 5250, '2023-02-03 00:00:00'),
-(7, 'ander', 8750, '2023-02-04 00:00:00');
+(1, 'pablo', 8750, '2023-02-05 00:00:00'),
+(2, 'pablo', 875, '2023-02-10 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -179,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `imagen` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
   `precio` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -264,7 +243,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 INSERT INTO `usuario` (`usuario`, `rol`, `nombre`, `apellidos`, `password`, `domicilio`, `codigopostal`, `telefono`, `email`) VALUES
 ('ander', 'admin', 'Ander', 'Panera', 'dw2', 'calle', '01001', '666777888', 'ander@gmail.com'),
-('pablo', 'usuario', 'Pablo', 'Gonzalez', 'dw2', 'calee', '01001', '666777888', 'pablo@gmail.com');
+('pablo', 'usuario', 'Pablo', 'Gonzalez', 'dw2', 'calee', '01001', '666777888', 'pablo@gmail.com'),
+('sergio', 'usuario', 'Sergio', 'Groppa', 'dw2', 'calle', '01001', '666777888', 'sergio@gmail.com');
 
 --
 -- Restricciones para tablas volcadas
