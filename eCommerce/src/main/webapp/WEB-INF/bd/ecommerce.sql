@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 03-02-2023 a las 07:18:03
+-- Tiempo de generación: 10-02-2023 a las 07:06:42
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -35,24 +35,62 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   KEY `idproducto` (`idproducto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `datos_pago`
+-- Volcado de datos para la tabla `categoria`
 --
 
-DROP TABLE IF EXISTS `datos_pago`;
-CREATE TABLE IF NOT EXISTS `datos_pago` (
-  `id` int NOT NULL,
-  `usuario` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `titular` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `numero` int NOT NULL,
-  `caducidad` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `codigo` int NOT NULL,
-  `domicilio` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  PRIMARY KEY (`id`,`usuario`),
-  KEY `usuario` (`usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+INSERT INTO `categoria` (`categoria`, `idproducto`) VALUES
+('Select', 1),
+('Select', 2),
+('Select', 3),
+('Select', 4),
+('Select', 5),
+('Select', 6),
+('Deluxe', 7),
+('Deluxe', 8),
+('Deluxe', 9),
+('Deluxe', 10),
+('Deluxe', 11),
+('Select', 12),
+('Select', 13),
+('Select', 14),
+('Select', 15),
+('Select', 16),
+('Select', 17),
+('Select', 18),
+('Select', 19),
+('Select', 20),
+('Select', 21),
+('Deluxe', 22),
+('Deluxe', 23),
+('Deluxe', 24),
+('Deluxe', 25),
+('Deluxe', 26),
+('Select', 27),
+('Select', 28),
+('Select', 29),
+('Select', 30),
+('Select', 31),
+('Deluxe', 32),
+('Deluxe', 33),
+('Deluxe', 34),
+('Deluxe', 35),
+('Deluxe', 36),
+('Premium', 37),
+('Premium', 38),
+('Premium', 39),
+('Premium', 40),
+('Premium', 41),
+('Ultra', 42),
+('Ultra', 43),
+('Ultra', 44),
+('Ultra', 45),
+('Ultra', 46),
+('Exclusive', 47),
+('Exclusive', 48),
+('Exclusive', 49),
+('Exclusive', 50),
+('Exclusive', 51);
 
 -- --------------------------------------------------------
 
@@ -66,10 +104,37 @@ CREATE TABLE IF NOT EXISTS `lineapedido` (
   `cantidad` int NOT NULL,
   `idpedido` int NOT NULL,
   `idproducto` int NOT NULL,
-  Constraint PK_ID_IDPEDIDO Primary Key (`id`, `idpedido`),
+  PRIMARY KEY (`id`,`idpedido`),
   KEY `idpedido` (`idpedido`),
   KEY `idproducto` (`idproducto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `lineapedido`
+--
+
+INSERT INTO `lineapedido` (`id`, `cantidad`, `idpedido`, `idproducto`) VALUES
+(1, 1, 1, 2),
+(1, 1, 2, 2),
+(1, 2, 3, 2),
+(1, 1, 4, 1),
+(1, 1, 5, 1),
+(1, 3, 6, 2),
+(1, 1, 7, 12),
+(2, 1, 1, 3),
+(2, 1, 2, 3),
+(2, 5, 3, 3),
+(2, 2, 4, 2),
+(2, 2, 6, 3),
+(2, 1, 7, 3),
+(3, 1, 2, 4),
+(3, 5, 3, 4),
+(3, 1, 6, 4),
+(3, 6, 7, 2),
+(4, 3, 3, 8),
+(4, 1, 7, 4),
+(5, 2, 3, 11),
+(5, 1, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -85,7 +150,20 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `fecha` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `usuario` (`usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`id`, `usuario`, `total`, `fecha`) VALUES
+(1, 'ander', 1750, '2023-02-03 00:00:00'),
+(2, 'ander', 2625, '2023-02-03 00:00:00'),
+(3, 'ander', 16875, '2023-02-03 00:00:00'),
+(4, 'ander', 2625, '2023-02-03 00:00:00'),
+(5, 'ander', 875, '2023-02-03 00:00:00'),
+(6, 'ander', 5250, '2023-02-03 00:00:00'),
+(7, 'ander', 8750, '2023-02-04 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -180,6 +258,14 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`usuario`, `nombre`, `apellidos`, `password`, `domicilio`, `codigopostal`, `telefono`, `email`) VALUES
+('ander', 'Ander', 'Panera', 'dw2', 'calle', '01001', '666777888', 'ander@gmail.com'),
+('pablo', 'Pablo', 'Gonzalez', 'dw2', 'calee', '01001', '666777888', 'pablo@gmail.com');
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -188,12 +274,6 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 ALTER TABLE `categoria`
   ADD CONSTRAINT `categoria_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `producto` (`id`);
-
---
--- Filtros para la tabla `datos_pago`
---
-ALTER TABLE `datos_pago`
-  ADD CONSTRAINT `datos_pago_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`usuario`);
 
 --
 -- Filtros para la tabla `lineapedido`
