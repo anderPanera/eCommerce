@@ -64,7 +64,7 @@
 			      	<!-- Boton para ir atras -->
 					<div class="d-flex justify-content-end mb-2 me-2">
 						<input class="btn btn-success" name="modo" type="submit" value="cambiar" />
-						<input class="btn btn-danger" name="eliminar" type="submit" value="eliminar" />
+						<input class="btn btn-danger" name="modo" type="submit" value="eliminar" />
 						<a href=".." class="btn btn-info">Atras</a>
 					</div>
 			    </form>
