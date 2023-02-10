@@ -30,6 +30,10 @@ public class Usuario {
 		return usuario;
 	}
 
+	public String getRol() {
+		return rol;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
