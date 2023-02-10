@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
+
 import beans.Producto;
 import conex.BDConex;
 
@@ -102,6 +104,33 @@ public class ProductoDao {
 		}
 		
 		return insertado;
+		
+	}
+	
+	public static boolean actualizarProducto(Producto producto) {
+		
+		String sql = "UPDATE producto SET nombre=?, descripcion=?, imagen=?, precio=? WHERE id = ?";
+		
+		boolean actualizado = false;
+		
+		try (Connection con = conex.getConnection()) {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, producto.getNombre());
+			ps.setString(2, producto.getNombre());
+			ps.setString(3, producto.getImagen());
+			ps.setInt(4, producto.getPrecio());
+			ps.setInt(5, producto.getId());
+			
+			actualizado = ps.execute();
+			
+			ps.close();
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		
+		return actualizado;
 		
 	}
 	
