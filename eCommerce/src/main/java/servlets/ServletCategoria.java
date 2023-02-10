@@ -15,7 +15,6 @@ import dao.CategoriaDao;
 /**
  * Servlet implementation class ServletCategoria
  */
-@WebServlet("/ServletCategoria")
 public class ServletCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

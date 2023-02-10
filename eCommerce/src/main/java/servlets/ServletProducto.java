@@ -20,7 +20,6 @@ import dao.ProductoDao;
 /**
  * Servlet implementation class Productos
  */
-@WebServlet("/ServletProducto")
 public class ServletProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

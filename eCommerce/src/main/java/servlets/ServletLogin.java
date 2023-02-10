@@ -14,7 +14,6 @@ import dao.UsuarioDao;
 /**
  * Servlet implementation class ServletLogin
  */
-@WebServlet("/ServletLogin")
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
