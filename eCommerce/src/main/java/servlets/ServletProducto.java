@@ -45,6 +45,14 @@ public class ServletProducto extends HttpServlet {
 			carro = (Carro) session.getAttribute("carro");
 		}
 		
+		if (request.getParameter("editar") != null) {
+			Integer id = Integer.parseInt(request.getParameter("id"));
+			
+			
+			
+			
+		}
+		
 		if (request.getParameter("id") != null) {
 			Integer id = Integer.parseInt(request.getParameter("id"));
 			if (request.getParameter("info") != null) {
@@ -85,7 +93,12 @@ public class ServletProducto extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		HttpSession session = request.getSession(true);
+		
+		
+		
+		
+		
 	}
 
 }

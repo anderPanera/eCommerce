@@ -29,7 +29,12 @@
 				    		<h5 class="card-title">${p.nombre}</h5>
 					    	<small>${p.precio} <img style="filter: invert(1);" height="18" src="/eCommerce/img/coin.webp"></small>
 					    	<div class="d-flex mt-2">
-							    <a href="ServletProducto?comprar&id=${p.id}" type="button" class="btn btn-outline-success flex-fill me-2">Comprar</a>
+					    		<c:if test="${usuario.rol == 'admin'}">
+					    			<a href="ServletProducto?editar&id=${p.id}" type="button" class="btn btn-outline-danger flex-fill me-2">Editar</a>
+					    		</c:if>
+					    		<c:if test="${usuario.rol == 'usuario' || usuario.rol == null}">
+					    			<a href="ServletProducto?comprar&id=${p.id}" type="button" class="btn btn-outline-success flex-fill me-2">Comprar</a>
+					    		</c:if>
 							    <a href="ServletProducto?info&id=${p.id}" type="button" class="btn btn-outline-secondary"><i class="bi bi-info-circle-fill"></i></a>
 							</div>
 				    	</div>
